@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chaves e a Arquitetura Computacional</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="barra">
+    <button class="marca" data-ir="tela-inicio" aria-label="Voltar ao início">
+      Arquitetura Vila da
+    </button>
+    <nav class="etapas" aria-label="Etapas do jogo">
+      <button data-ir="tela-inicio">Início</button>
+      <button data-ir="tela-historia">História</button>
+      <button data-ir="tela-jogo">Cruzadinha</button>
+    </nav>
+  </header>
+
+  <!-- Tela 1: início -->
+  <main id="tela-inicio" class="tela ativa">
+    <section class="heroi">
+
+      <div class="heroi-texto">
+        <h1>A prova final do Professor Girafales</h1>
+        <p class="subtitulo">CHAVES E A ARQUITETURA COMPUTACIONAL</p>
+        <p>
+          Entre processadores, memórias e barramentos, existem 16 palavras escondidas que precisam ser descobertas. E
+          agora, você terá que ajudar o Chaves a resolver esse desafio antes que o sinal do recreio toque!
+        </p>
+        <button class="botao" data-ir="tela-historia">Começar desafio</button>
+        <p class="creditos">Jogo desenvolvido por Nathalia Garcia da Rocha, aluna 1ADSB</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tela 2: historinha -->
+  <main id="tela-historia" class="tela">
+    <section class="painel historia">
+      <h2>A prova final do Professor Girafales</h2>
+      <p>É o último dia de aula na escolinha da Vila! O Professor Girafales chega à sala, pega o giz e anuncia que a
+        lição de hoje será sobre um assunto muito importante: a arquitetura de um computador.</p>
+      <p>Com toda a paciência, ele começa a explicar que o processador é como o cérebro da máquina: enquanto uma parte
+        controla as instruções, outra realiza cálculos e comparações.</p>
+      <p>Ele também apresenta as memórias, explicando que algumas são pequenas e muito rápidas, outras armazenam grandes
+        quantidades de informações e algumas conseguem guardar dados mesmo quando o computador está desligado.</p>
+      <p>Mas a aula não para por aí! O professor explica que os barramentos funcionam como caminhos por onde as
+        informações circulam, levando endereços e transportando dados entre os componentes.</p>
+      <p>O Chaves começa a ficar confuso, o Quico diz que não entendeu nadinha e a Chiquinha já está pensando no
+        recreio.</p>
+
+        <p>Até que o Professor Girafales anuncia:</p>
+
+        <p>"Chegou a hora de testar o que vocês aprenderam! A atividade de hoje será uma cruzadinha sobre arquitetura
+        computacional!"</p>
+
+       <p> Agora, a turma conta com a sua ajuda para resolver as 16 palavras e concluir a atividade.</p>
+
+        <p>Prepare-se, leia as pistas com atenção e mostre que você aprendeu a lição. Afinal, ninguém quer ficar de
+        recuperação na escolinha da Vila!</p>
+      <div class="acoes">
+        <button class="botao secundario" data-ir="tela-inicio">Voltar</button>
+        <button class="botao" data-ir="tela-jogo">Ir para a cruzadinha</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tela 3: jogo -->
+  <main id="tela-jogo" class="tela tela-larga">
+    <section class="painel topo-jogo">
+      <div>
+        <h2>Cruzadinha da Vila</h2>
+        <p id="mensagem" class="mensagem" role="status">Clique numa casa e comece a digitar.</p>
+      </div>
+      <div class="controles">
+        <span id="contador" class="contador">0 de 16 palavras</span>
+        <button id="btn-conferir" class="botao pequeno">Conferir</button>
+        <button id="btn-reiniciar" class="botao pequeno secundario">Reiniciar</button>
+        <button class="botao pequeno secundario" data-ir="tela-historia">← História</button>
+      </div>
+    </section>
+
+    <div class="area-jogo">
+      <div class="painel tabuleiro-box">
+        <div id="tabuleiro" class="tabuleiro"></div>
+      </div>
+      <aside class="painel pistas">
+        <h3>Horizontais</h3>
+        <ol id="pistas-horizontais"></ol>
+        <h3>Verticais</h3>
+        <ol id="pistas-verticais"></ol>
+      </aside>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

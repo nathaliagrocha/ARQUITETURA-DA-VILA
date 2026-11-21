@@ -1,0 +1,133 @@
+:root {
+  --verde-escuro: #264d34;
+  --verde: #3f7a52;
+  --verde-claro: #cfe6b5;
+  --verde-suave: #eef6e2;
+  --amarelo: #f3c63c;
+  --madeira: #9a6a3a;
+  --branco: #fffdf6;
+  --certo: #8fdc98;
+  --errado: #f4a59a;
+  --texto: #1f3727;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  font-family: "Trebuchet MS", Verdana, sans-serif; color: var(--texto); line-height: 1.55;
+  background-color: var(--verde-suave);
+  background-image:
+    linear-gradient(45deg, #e1efce 25%, transparent 25%, transparent 75%, #e1efce 75%),
+    linear-gradient(45deg, #e1efce 25%, transparent 25%, transparent 75%, #e1efce 75%);
+  background-size: 56px 56px; background-position: 0 0, 28px 28px;
+}
+h1, h2, h3 { font-family: Georgia, serif; color: var(--verde-escuro); margin: 0; }
+button { font-family: inherit; }
+
+/* barra superior */
+.barra {
+  position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;
+  padding: 10px 20px; background: var(--verde-escuro); border-bottom: 5px solid var(--amarelo);
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+.marca { background: none; border: 0; color: var(--branco); font: bold 18px Georgia, serif; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+.marca-barril { height: 30px; width: auto; }
+.etapas { display: flex; gap: 6px; }
+.etapas button {
+  background: transparent; color: var(--verde-claro); border: 2px solid transparent; border-radius: 999px;
+  padding: 6px 14px; font-size: 14px; font-weight: bold; cursor: pointer;
+}
+.etapas button:hover { border-color: var(--verde-claro); }
+.etapas button.atual { background: var(--amarelo); color: var(--verde-escuro); }
+
+/* telas */
+.tela { display: none; width: 100%; max-width: 980px; margin: 0 auto; padding: 32px 16px 24px; flex: 1; }
+.tela.ativa { display: block; }
+.tela-larga { max-width: 1180px; }
+
+.painel {
+  background: var(--branco); border: 3px solid var(--verde-escuro); border-radius: 18px;
+  box-shadow: 0 6px 0 var(--verde-escuro), 0 12px 20px rgba(0,0,0,.15); padding: 22px 26px;
+}
+
+/* início */
+.heroi { display: flex; align-items: center; gap: 40px; justify-content: center; padding-top: 24px; }
+.heroi-texto { max-width: 520px; }
+.heroi-texto h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.1; }
+.subtitulo { font-weight: bold; color: var(--verde); font-size: 18px; margin: 10px 0 14px; }
+.heroi-texto .botao { margin: 10px 0 18px; }
+.creditos { font-size: 14px; border-top: 3px dotted var(--verde); padding-top: 12px; margin: 0; }
+
+.barril { flex: none; width: 210px; height: auto; filter: drop-shadow(0 12px 12px rgba(0,0,0,.3)); }
+
+/* historinha */
+.historia { max-width:100%; margin: 0 auto; border-left-width: 14px; }
+.historia h2 { font-size: 30px; margin-bottom: 14px; }
+.historia p { margin: 0 0 14px; font-size: 17px; }
+.historia p:first-of-type::first-letter { font: bold 44px/0.8 Georgia, serif; color: var(--verde); float: left; padding: 6px 8px 0 0; }
+.acoes { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; margin-top: 22px; }
+
+/* botões */
+.botao {
+  background: var(--amarelo); color: var(--verde-escuro); font-weight: bold; font-size: 18px;
+  border: 3px solid var(--verde-escuro); border-radius: 999px; padding: 12px 28px; cursor: pointer;
+  box-shadow: 0 5px 0 var(--verde-escuro); transition: transform .1s, box-shadow .1s, background .1s;
+}
+.botao:hover { background: #f8d867; }
+.botao:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--verde-escuro); }
+.botao.secundario { background: var(--branco); }
+.botao.secundario:hover { background: var(--verde-claro); }
+.botao.pequeno { font-size: 15px; padding: 8px 18px; }
+:focus-visible { outline: 3px solid #1f6fd1; outline-offset: 2px; }
+
+/* jogo */
+.topo-jogo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 22px; }
+.topo-jogo h2 { font-size: 26px; }
+.mensagem { margin: 2px 0 0; font-size: 14px; font-weight: bold; color: var(--verde); }
+.controles { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.contador { background: var(--verde-escuro); color: var(--branco); padding: 8px 18px; border-radius: 999px; font-weight: bold; border: 3px solid var(--amarelo); }
+
+.area-jogo { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; justify-content: center; }
+.tabuleiro-box { padding: 16px; max-width: 100%; overflow-x: auto; }
+.tabuleiro { display: grid; gap: 3px; width: max-content; }
+.cell { position: relative; width: 34px; height: 34px; }
+.cell.vazia { visibility: hidden; }
+.cell input {
+  width: 100%; height: 100%; padding: 0; text-align: center; text-transform: uppercase;
+  font: bold 18px "Trebuchet MS", sans-serif; color: var(--texto); caret-color: transparent;
+  background: var(--branco); border: 2px solid var(--verde-escuro); border-radius: 6px; box-shadow: 0 2px 0 var(--verde-escuro);
+}
+.cell .num { position: absolute; top: 1px; left: 3px; font-size: 9px; font-weight: bold; color: var(--verde-escuro); pointer-events: none; }
+.cell.ativa input { background: var(--verde-claro); }
+.cell.atual input { background: var(--amarelo); }
+.cell.certa input { background: var(--certo); }
+.cell.errada input { background: var(--errado); }
+
+.pistas { flex: 1 1 330px; max-width: 480px; }
+.pistas h3 { font-size: 20px; margin-bottom: 8px; border-bottom: 3px solid var(--amarelo); padding-bottom: 4px; }
+.pistas ol { list-style: none; margin: 0 0 18px; padding: 0; }
+.pistas li { padding: 6px 10px; border-radius: 10px; cursor: pointer; font-size: 15px; line-height: 1.4; border: 2px solid transparent; }
+.pistas li:hover { background: var(--verde-suave); }
+.pistas li.ativa { background: var(--verde-claro); border-color: var(--verde); }
+.pistas li.certa { background: var(--certo); }
+.pistas li.errada { background: var(--errado); }
+.pistas b { color: var(--verde-escuro); margin-right: 4px; }
+
+@media (max-width: 700px) {
+  .heroi { flex-direction: column; text-align: center; gap: 24px; }
+  .barril { width: 150px; }
+  .barra { padding: 8px 12px; }
+  .marca { font-size: 15px; }
+  .etapas button { padding: 5px 10px; font-size: 13px; }
+  .painel { padding: 18px; }
+  .cell { width: 29px; height: 29px; }
+  .cell input { font-size: 15px; }
+  .historia { border-left-width: 3px; }
+}
+@media (prefers-reduced-motion: reduce) { .botao { transition: none; } }
+
+/* fundo da sala de aula na tela da cruzadinha */
+body.fundo-sala { background-image: none; background-color: var(--branco); }
+body.fundo-sala::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; opacity: .3;
+  background: url("imagens/sala-de-aula.png") center / cover no-repeat;
+}
