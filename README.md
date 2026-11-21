@@ -8,7 +8,7 @@ O desafio conta com 16 palavras relacionadas aos componentes e conceitos de um c
 **Desenvolvido por:** Nathalia Garcia da Rocha  
 **Turma:** 1ADSB
 
-🌐 **Acesse o jogo:** [Cruzadinha de Arquitetura Computacional](https://SEU-USUARIO.github.io/arqcomp-cruzadinha/)
+🌐 **Acesse o jogo:** [Cruzadinha de Arquitetura Computacional](https://nathaliagrocha.github.io/ARQUITETURA-DA-VILA/)
 
 ---
 
